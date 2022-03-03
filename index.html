@@ -3,17 +3,61 @@
 <head>
 	<meta charset="utf-8">
 	<script>
+		function setSearchEngine(){
+			window.alert("setSearchEngine");
+			console.log("setSearchEngine function is executing");
+			let selected=document.querySelector("input[name=engine]:checked");
+			let actions = {
+   				"google": "https://www.google.com/",
+				"duckDuckGo": "https://www.duckduckgo.com/",
+				"bing": "https://www.bing.com/",
+				"ask": "https://www.ask.com/"
+			};
+			let url=actions[selected.value];
+			this.action=url;
+			this.submit();
+		}
 		// TODO: create a handler
-    window.addEventListener("load", function(){
+    	window.addEventListener("load", function(){
         // TODO: register the handler
-    });
+			let searchForm=document.getElementById("searchForm");
+			searchForm.addEventListener("submit",setSearchEngine
+		
+		/*
+		function(){
+			let selected=document.querySelector("input[name=engine]:checked");
+			let actions = {
+   				"google": "https://www.google.com/",
+				"duckDuckGo": "https://www.duckduckgo.com/",
+				"bing": "https://www.bing.com/",
+				"ask": "https://www.ask.com/"
+			};
+			let url=actions[selected.value];
+			searchForm.action=url;
+			searchForm.submit();
+			*/
+			);
+		});
 	</script>
 </head>
 
 <body>
-
-	<form id="searchForm">
+	<div style="border: 1px solid black">
+	<form id="searchForm" style="padding-top: 2px; padding-bottom: 2px; padding-left: 2px;">
     <!-- TODO: add form elements -->
+	<label>Search for: <input name="q"/></label>
+	<br>
+	<br>
+	<div>Search Engines:
+		<label><input type="radio" name="engine" value="google">Google</label>
+		<label><input type="radio" name="engine" value="duckDuckGo">DuckDuckGo</label>
+		<label><input type="radio" name="engine" value="bing">Bing</label>
+		<label><input type="radio" name="engine" value="ask">Ask</label>
+	</div>
+	<br>
+	<br>
+	<button type="submit">Go!</button>
 	</form>
+	</div>
 
 </body>
